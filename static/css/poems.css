@@ -1,0 +1,134 @@
+/*keep scrollbar visible*/
+html {
+overflow: -moz-scrollbars-vertical; 
+overflow-y: scroll;
+}
+
+/*ensure we have padded containers*/
+.container {
+  padding: 2% 2% 0% 2%; 
+}
+
+/*poem page needs to be centrally aligned*/
+.poem-page {
+  text-align: center;
+}
+
+/*subtitle of poem should be light grey*/
+.poem-subtitle {
+  color: #ddd;
+}
+
+/*main title of page*/
+h1 {
+  font-size: 450%;
+  font-weight: 100;
+  color: #ddd;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/*navigation links under main title*/
+.nav-link {
+  font-size: 150%;
+  font-weight: 200;
+  color: #ddd;
+  cursor: pointer;
+}
+.nav-link:hover {
+  color: #999;
+}
+
+.body-area {
+  font-size: 150%;
+  font-weight: 200;
+  color: #999;
+  padding: 3.3%;
+}
+
+/*hide everything at beginning*/
+.body-area-content {
+  display: none;
+}
+#example-poems-content {
+  display: block;
+}
+
+/*twitter sample poem*/
+.sample-twitter-poem-container {
+  padding-top: 30px;
+  text-align: center;
+}
+
+/*twitter all poems*/
+.twitter-poem-container {
+  padding-top: 30px;
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+blockquote {
+  cursor: pointer;
+}
+blockquote:hover {
+  border-style: solid !important;
+  border-width: 0px !important;
+  border-color: #aaa;
+  box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+twittername {
+  display: inline;
+  font-weight: 300;
+  color: #999;
+  padding-right: 3px;
+}
+twitterdate {
+  display: inline;
+  color: #999;
+}
+
+blockquote.twitter-tweet {
+  color: #2a6496;
+  display: block;
+  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+  font-size: 13px;
+  font-weight: lighter;
+  line-height: 13px;
+  border-color: #ececec;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 0px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.00);
+  margin: 5px 0px;
+  padding: 14px 26px;
+  width: 80%;
+  margin: 0 auto;
+}
+ 
+blockquote.twitter-tweet p {
+  display: inline;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 15px;
+}
+
+.back-to-main {
+  padding-top: 100px;
+  font-size: 60%;
+}
+
+/*example poem list*/
+.poem {
+  display: inline-block;
+  padding: 6px;
+  margin: 12px;
+  cursor: pointer;
+  margin-top: -20px;
+}
+.poem:hover {
+  text-decoration: none;
+  background: #efefef;
+}

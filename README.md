@@ -1,0 +1,1 @@
+Flask App for poetry project. See other repo (with mapreduce code) for details on how to generate poems. Generated poems should be saved as Python scripts as seen in this folder. Poem.py is the Flask app to display the main web page and featured poems.

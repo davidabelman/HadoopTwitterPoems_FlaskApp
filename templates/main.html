@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+
+{% block head %}
+	{{ super() }}
+{% endblock %}
+
+{% block title %}
+	{{ super() }}
+	 - Home
+{% endblock %}
+
+{% block body %}
+	{{ super() }}
+
+	<div class='container'>
+	
+		<div class='header'>
+			<div class='title col-xs-12'>
+				<h1>Twitter Poetry with MapReduce</h1>	
+			</div>
+			
+			<div class='nav-links container'>
+				<div class='col-sm-3'>
+					<h3 class='nav-link' id='what-is-this'>
+						What is this?
+					</h3>
+				</div>
+				<div class='col-sm-3'>
+					<h3 class='nav-link' id='how-it-works'>
+						How it works
+					</h3>
+				</div>
+				<div class='col-sm-3'>
+					<h3 class='nav-link' id='example-poems'>
+						Example poems
+					</h3>
+				</div>
+				<div class='col-sm-3'>
+					<h3 class='nav-link' id='create-poem'>
+						Create your own poem
+					</h3>
+				</div>
+			</div>
+		</div> <!-- end header -->
+
+		<div class='body-area col-xs-12'>
+
+			<div id='what-is-this-content' class='body-area-content'>
+				This is a toy project by <a href='http://www.davidabelman.co.uk'>David Abelman</a>, created in 2014. The algorithm pulls data from Twitter, passes it through 3 layers of MapReduce, and outputs a rhyming, half-sensical poem composed from tweets from around the world.
+
+				<div class='sample-twitter-poem-container col-xs-12'>
+
+						<blockquote class="twitter-tweet" lang="en" link=https://twitter.com/Jakeadelics/status/535110377810690049>
+							<p>if i say &#34;you&#39;re pretty&#34; don&#39;t tell me &#34;no i&#39;m not&#34;</p>
+							<twittername>&mdash; @Jakeadelics</twittername> 
+							<twitterdate>November 19, 2014</twitterdate>
+						</blockquote>
+					
+						<blockquote class="twitter-tweet" lang="en" link=https://twitter.com/darchwjack/status/533402122176712704>
+							<p>i&#39;m not being sarcastic when i say you&#39;re hot.</p>
+							<twittername>&mdash; @darchwjack</twittername> 
+							<twitterdate>November 14, 2014</twitterdate>
+						</blockquote>
+					
+						<blockquote class="twitter-tweet" lang="en" link=https://twitter.com/Shabilla_rahma/status/535808029355028481>
+							<p>you say i dream too big and i say you think too small</p>
+							<twittername>&mdash; @Shabilla_rahma</twittername> 
+							<twitterdate>November 21, 2014</twitterdate>
+						</blockquote>
+					
+						<blockquote class="twitter-tweet" lang="en" link=https://twitter.com/sharifahmirrah/status/535868441433886720>
+							<p>hope when the moment comes you say... i, i did it all</p>
+							<twittername>&mdash; @sharifahmirrah</twittername> 
+							<twitterdate>November 21, 2014</twitterdate>
+						</blockquote>
+				
+				</div>	
+			</div>		
+
+			<div id='how-it-works-content' class='body-area-content'>
+				The following describes briefly how the poems are generated. See <a href='https://github.com/davidabelman/HadoopTwitterPoems'>the code</a>.
+				<br>
+				
+				<div class='how-it-works-step'>
+					<h3>Stage 1: Tweets collected from Twitter</h3>
+					<p>The user enters a set of search terms (these can have and/or conditions, as well as words and phrases to exclude, etc.). A script is run to crawl Twitter according to these search terms. Tweets will be saved along with all metadata within one large text file.</p>
+				</div>
+
+				<div class='how-it-works-step'>
+					<h3>Stage 2: MapReduce to select unique tweets</h3>
+					<p>Blah</p>
+				</div>
+
+				<div class='how-it-works-step'>
+					<h3>Stage 3: MapReduce to create groups of rhyming Tweets</h3>
+					<p>Blah</p>
+				</div>
+
+				<div class='how-it-works-step'>
+					<h3>Stage 4: MapReduce to calculate optimal rhyming couplets and order</h3>
+					<p>Blah</p>
+				</div>
+				
+			</div>
+
+			<div id='example-poems-content' class='body-area-content'>
+				
+					<a class='poem' href='/poem/isayyousay'>I say you say</a>
+					<a class='poem' href='/poem/chucknorris'>Chuck Norris</a>
+					<a class='poem' href='/poem/younglove'>Young love</a>
+					<a class='poem' href='/poem/myboyfriend'>My Boyfriend</a>
+					<a class='poem' href='/poem/mygirlfriend'>My Girlfriend</a>
+					<a class='poem' href='/poem/loveit'>Love it</a>
+					<a class='poem' href='/poem/dogscats'>Cats and Dogs</a>
+					<a class='poem' href='/poem/sometimes6'>Sometimes 6</a>
+					<a class='poem' href='/poem/sometimes7'>Sometimes 7</a>
+					<a class='poem' href='/poem/sometimes8'>Sometimes 8</a>
+					<a class='poem' href='/poem/sometimes9'>Sometimes 9</a>
+					<a class='poem' href='/poem/sometimesexplicit'>Sometimes (explicit)</a>
+					<a class='poem' href='/poem/heytwitter'>Hey Twitter</a>
+					<a class='poem' href='/poem/maths'>Mathematics</a>
+					<a class='poem' href='/poem/barackobama'>Barack Obama</a>
+					<a class='poem' href='/poem/ifeellikelong'>I feel like</a>
+					<a class='poem' href='/poem/lovelyday'>Lovely Day</a>
+					<a class='poem' href='/poem/3syllables'>1 2 3</a>
+					<a class='poem' href='/poem/miliband_cameron'>British politics today</a>
+					<a class='poem' href='/poem/iwaslike'>I was like</a>					
+					<a class='poem' href='/poem/specialrelationship'>A special relationship</a>
+					<a class='poem' href='/poem/imsolonely'>I'm so lonely</a>
+					<a class='poem' href='/poem/imsolonely2'>I'm so lonely (2)</a>
+					<a class='poem' href='/poem/omg'>OMG.</a>
+					<a class='poem' href='/poem/metapoetry'>Metapoetry</a>
+					<a class='poem' href='/poem/shortandhairy'>Short & Hairy</a>
+					<a class='poem' href='/poem/longandhairy'>Long & Hairy</a>
+					<a class='poem' href='/poem/lastnight'>Last Night</a>
+					<a class='poem' href='/poem/isayyousayi'>I say you say I</a>
+					<a class='poem' href='/poem/chocolate'>Chocolate</a>
+					<a class='poem' href='/poem/idontcare'>I don't care</a>
+					<a class='poem' href='/poem/shakespeare'>Shakespeare</a>
+					<a class='poem' href='/poem/mycat'>My cat</a>
+					
+					
+				
+			</div>
+
+			<div id='create-poem-content' class='body-area-content'>
+				Coming soon...
+			</div>
+
+		</div> <!-- end body area -->
+
+	</div>  <!-- end container -->
+
+
+
+{% endblock %}	
+
+
+
+{% block scripts_bottom %}
+	{{ super() }}
+	<!-- Add any more page specific scripts here -->
+	<script src="{{url_for('static', filename = 'js/poems.js', _external=True)}}"></script>
+{% endblock %}
+
+
+

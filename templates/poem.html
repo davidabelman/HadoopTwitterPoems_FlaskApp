@@ -1,0 +1,59 @@
+<!-- This page takes in a poem title, description, and poem from an external python module
+Loops through the lines of the poem putting them in HTML -->
+
+{% extends "base.html" %}
+
+{% block head %}
+	{{ super() }}
+{% endblock %}
+
+{% block title %}
+	{{ super() }}
+	 - Home
+{% endblock %}
+
+{% block body %}
+	{{ super() }}
+
+	<div class='container poem-page'>
+	
+		<!-- poem title -->
+		<div class='header'>
+			<div class='title col-xs-12'>
+				<h1>{{title}}</h1>	
+			</div>
+		</div>
+
+		<!-- poem description if required -->
+		<div class='body-area col-xs-12'>
+
+				<div class='poem-subtitle'>
+					{{desc}}
+				</div>	
+
+				<div class='twitter-poem-container col-xs-12'>
+					<!-- this puts poem into format for web page -->
+					{% for line in poem %}
+						<blockquote class="twitter-tweet" lang="en" link={{line[3]}}>
+							<p>{{line[0]|e}}</p>
+							<twittername>&mdash; @{{line[1]}}</twittername> 
+							<twitterdate>{{line[2]}}</twitterdate>
+						</blockquote>
+					{% endfor %}
+				</div>	
+									
+			<!-- little link back home -->
+			<a class='back-to-main' href='../../'>
+				<< Back to main site
+			</a>
+		
+		</div>
+	
+{% endblock %}	
+
+
+{% block scripts_bottom %}
+	{{ super() }}
+	<!-- Add any more page specific scripts here -->
+	<script src="{{url_for('static', filename = 'js/poems.js', _external=True)}}"></script>
+{% endblock %}
