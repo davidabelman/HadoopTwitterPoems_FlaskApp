@@ -83,22 +83,39 @@
 				
 				<div class='how-it-works-step'>
 					<h3>Stage 1: Tweets collected from Twitter</h3>
-					<p>The user enters a set of search terms (these can have and/or conditions, as well as words and phrases to exclude, etc.). A script is run to crawl Twitter according to these search terms. Tweets will be saved along with all metadata within one large text file.</p>
+					<p>
+						The user enters a set of search terms (these can have and/or conditions, as well as words and phrases to exclude, etc.). A script is run to crawl Twitter according to these search terms. Tweets will be saved along with all metadata within one large text file.
+					</p>
 				</div>
 
 				<div class='how-it-works-step'>
 					<h3>Stage 2: MapReduce to select unique tweets</h3>
-					<p>Blah</p>
+					<p>
+						A set of mappers parse the text file, pulling out details such as tweet text, username, post date and tweet language, on a tweet by tweet basis. Each tweet is then passed through a filter to establish whether it is valid for further analysis. Factors considered here are whether the tweet is within a specified length range (number of words), whether the tweets starts with a certain specified word (optional), whether the tweet contains certain required terms, whether the tweet contains certain banned terms, and so on.
+					</p>
+					<p>
+						The tweets that pass the filter are sorted by tweet content, and sent to a set of reducers. All tweets with identical text content will be grouped together. The reducers then run a 'minimum' function on the tweet date within this group, selecting the first tweet for any identical sets of tweets which contain the same content. Thus the first author of a tweet's content will be attributed with the tweet. The other duplicated instances of this tweet are not output from the reducer.
+					</p>
 				</div>
 
 				<div class='how-it-works-step'>
 					<h3>Stage 3: MapReduce to create groups of rhyming Tweets</h3>
-					<p>Blah</p>
+					<p>
+						The next mapper takes each unique tweet, and extracts the final word. A 'rhyme code' is looked up for this word, and output from the mapper along with the tweet. Two rhyming words should have the same rhyme code.
+					</p>
+					<p>
+						The tweets are sorted by rhyme code and sent to the reducers, ensuring all rhyming lines are now grouped together. The reducers output 'sets' of rhyming tweets, all grouped by rhyme code.
+					</p>
 				</div>
 
 				<div class='how-it-works-step'>
 					<h3>Stage 4: MapReduce to calculate optimal rhyming couplets and order</h3>
-					<p>Blah</p>
+					<p>
+						Each 'set' of rhyming tweets is parsed by a final mapper. The mapper will loop through all combinations of tweet-pairs within this set, trying to find the optimum pair of rhyming tweets within the set. Certain conditions will filter out some pairs (for example if the last word is the same for both tweets in the pair, or if they have the same sound such as 'their' and 'there'). Providing the pair makes it through these conditions, the scansion is scored (CMU pronunciation dictionary allows us to analyse the stress and metre of the sentence), the semantic similarity of the lines is scored (using overlap of non-common words), and the overall number of words recognised as English is scored (to weight against typo-ridden tweets). These scores are combined for each tweet-pair, and the pairs are ranked by total score within the rhyme set. The top-scoring pair of tweets for each rhyme set is sent to the reducer, and will ultimately form a line in the output poem.
+					</p>
+					<p>
+						The output pairs of tweets are sent to one final reducer, along with the score calculated for the pair. The tweets are sorted by score, thus the highest scoring pairs will appear first in the poem. The reducer outputs lines of the poem until either a low-threshold of score is reached (i.e. the scansion decreases to a less than satisfactory level) or a maximum number of output lines is reached (i.e. the poem is getting too long).
+					</p>
 				</div>
 				
 			</div>
