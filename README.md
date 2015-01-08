@@ -2,7 +2,7 @@
 
 Intro
 ------
-Flask App for poetry project. This repo contains the Flask side only (i.e. main page, and poems which are loaded by the app). See the other repo (with mapreduce code, at ) for details on how to generate the poems themselves.
+Flask App for poetry project. This repo contains the Flask side only (i.e. main page, and poems which are loaded by the app). See the other repo (with mapreduce code, at https://github.com/davidabelman/HadoopTwitterPoems) for details on how to generate the poems themselves.
 
 Usage
 ------
